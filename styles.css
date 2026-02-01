@@ -173,6 +173,7 @@ a {
   background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffc857 100%);
   padding-top: 80px;
   overflow: hidden;
+  z-index: 0;
 }
 
 .hero::before {
@@ -287,6 +288,9 @@ a {
 /* Section Styles */
 section {
   padding: 80px 0;
+  position: relative;
+  z-index: 1;
+  background-color: inherit;
 }
 
 .section-header {
@@ -308,6 +312,8 @@ section {
 /* About Section */
 .about {
   background: var(--bg-light);
+  position: relative;
+  z-index: 2;
 }
 
 .about-text {
