@@ -1,9 +1,347 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomelyB - A Bite From Home</title>
+  <meta name="description" content="Fresh, homestyle food that feels warm and familiar. HomelyB brings the comfort of home-cooked meals to students and workers living away from home.">
+  <link rel="icon" type="image/jpeg" href="https://yfopfurpjlejhpqoygfu.supabase.co/storage/v1/object/public/kitchen_profile/HomelyB_Logo.jpeg">
+  <link rel="apple-touch-icon" href="https://yfopfurpjlejhpqoygfu.supabase.co/storage/v1/object/public/kitchen_profile/HomelyB_Logo.jpeg">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Hello World 👋</h1>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#order" class="btn-primary">Order Now</a></li>
+      </ul>
+      <div class="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-logo-container">
+        <img src="https://yfopfurpjlejhpqoygfu.supabase.co/storage/v1/object/public/kitchen_profile/HomelyB_Logo.jpeg" alt="HomelyB Logo" class="hero-logo">
+      </div>
+      <h1 class="hero-title">A Bite From Home</h1>
+      <p class="hero-subtitle">Fresh, homestyle food that feels warm and familiar</p>
+      <p class="hero-description">Missing home-cooked meals? We bring the comfort of home to your plate, made with love and care, just like mom used to make.</p>
+      <div class="hero-buttons">
+        <a href="#menu" class="btn-primary btn-large">Explore Menu</a>
+        <a href="#contact" class="btn-secondary btn-large">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-header">
+        <h2>Welcome to HomelyB</h2>
+        <p class="section-subtitle">Where every meal feels like home</p>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Living away from home can be challenging, especially when you miss the warmth and comfort of home-cooked meals. At HomelyB, we understand that feeling.</p>
+          <p>We're here to bring you fresh, homestyle food that reminds you of home. Every dish is prepared with care, using quality ingredients and traditional recipes that bring comfort to your day.</p>
+          <p>Whether you're a student burning the midnight oil, a working professional with a busy schedule, or anyone who simply craves the taste of home, HomelyB is here for you.</p>
+          <div class="about-features">
+            <div class="feature">
+              <div class="feature-icon">🍲</div>
+              <h3>Homestyle Cooking</h3>
+              <p>Traditional recipes made with love</p>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">🌱</div>
+              <h3>Fresh Ingredients</h3>
+              <p>Quality ingredients, no compromises</p>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">❤️</div>
+              <h3>Made with Care</h3>
+              <p>Every meal prepared like it's for family</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="menu">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Menu</h2>
+        <p class="section-subtitle">Comfort food that brings you closer to home</p>
+      </div>
+      <div class="menu-categories">
+        <div class="menu-category">
+          <div class="category-icon">🍛</div>
+          <h3>Main Courses</h3>
+          <p>Hearty, filling meals that satisfy your soul. From traditional curries to comforting rice dishes, each plate is a warm embrace.</p>
+          <ul class="menu-items">
+            <li>Dal Tadka with Rice</li>
+            <li>Vegetable Biryani</li>
+            <li>Paneer Butter Masala</li>
+            <li>Chole Bhature</li>
+            <li>Rajma Chawal</li>
+          </ul>
+        </div>
+        <div class="menu-category">
+          <div class="category-icon">🥘</div>
+          <h3>Comfort Classics</h3>
+          <p>Simple, homestyle dishes that remind you of family dinners. Made fresh daily with recipes passed down through generations.</p>
+          <ul class="menu-items">
+            <li>Aloo Paratha with Curd</li>
+            <li>Khichdi with Kadhi</li>
+            <li>Poha & Upma</li>
+            <li>Idli Sambar</li>
+            <li>Dosa with Chutney</li>
+          </ul>
+        </div>
+        <div class="menu-category">
+          <div class="category-icon">🍜</div>
+          <h3>Soups & Sides</h3>
+          <p>Light, nourishing options perfect for any time of day. Warm your heart with our comforting soups and flavorful sides.</p>
+          <ul class="menu-items">
+            <li>Tomato Soup</li>
+            <li>Sweet Corn Soup</li>
+            <li>Mixed Vegetable Raita</li>
+            <li>Papad & Pickle</li>
+            <li>Fresh Salad</li>
+          </ul>
+        </div>
+        <div class="menu-category">
+          <div class="category-icon">🍰</div>
+          <h3>Sweets & Desserts</h3>
+          <p>End your meal on a sweet note with traditional desserts that bring back childhood memories and celebrations.</p>
+          <ul class="menu-items">
+            <li>Kheer (Rice Pudding)</li>
+            <li>Gulab Jamun</li>
+            <li>Gajar Halwa</li>
+            <li>Jalebi</li>
+            <li>Fresh Fruit Custard</li>
+          </ul>
+        </div>
+      </div>
+      <div class="menu-note">
+        <p><em>Menu items may vary based on availability and season. Contact us for today's special offerings!</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="why-choose-us">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why Choose HomelyB?</h2>
+        <p class="section-subtitle">More than just food - it's an experience</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">👨‍🍳</div>
+          <h3>Expert Chefs</h3>
+          <p>Our experienced chefs bring authentic home-style cooking to every dish</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🛵💨</div>
+          <h3>Fast Delivery</h3>
+          <p>Hot, fresh meals delivered right to your doorstep on time, every time</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">💰</div>
+          <h3>Affordable Prices</h3>
+          <p>Quality homestyle food that doesn't break the bank</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🌿</div>
+          <h3>Fresh & Healthy</h3>
+          <p>Only the freshest ingredients, prepared daily with no preservatives</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">📅</div>
+          <h3>Meal Plans</h3>
+          <p>Weekly and monthly meal plans available for your convenience</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🎁</div>
+          <h3>Special Occasions</h3>
+          <p>Custom orders for birthdays, festivals, and celebrations</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Special Offer Banner -->
+  <section class="special-offer">
+    <div class="container">
+      <div class="offer-content">
+        <div class="offer-badge">🎉 Limited Time Offer</div>
+        <h2>Get 20% Off Your First Order!</h2>
+        <p>New to HomelyB? Enjoy a special welcome discount on your first meal</p>
+        <a href="#contact" class="btn-primary btn-large pulse-button">Claim Your Offer</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <h2>What Our Family Says</h2>
+        <p class="section-subtitle">Stories from people who found their taste of home</p>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">"Being away from home for college was tough until I found HomelyB. The food tastes exactly like my mom's cooking. It's not just a meal, it's a warm hug when I need it most."</p>
+          <p class="testimonial-author">- Priya, Student</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">"As a working professional with long hours, HomelyB has been a lifesaver. Fresh, healthy, and reminds me of family dinners. I actually look forward to meal times now!"</p>
+          <p class="testimonial-author">- Rahul, Software Engineer</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">"The care and love put into every dish is evident. It's like having a piece of home delivered to my door. Thank you HomelyB for making my days brighter!"</p>
+          <p class="testimonial-author">- Anjali, Marketing Manager</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Order Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2>Get in Touch</h2>
+        <p class="section-subtitle">We'd love to hear from you</p>
+      </div>
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>Reach Out to Us</h3>
+          <p>Have questions about our menu? Want to place an order? Or just want to say hello? We're here for you.</p>
+          <div class="contact-methods">
+            <div class="contact-method">
+              <div class="contact-icon">📧</div>
+              <div>
+                <h4>Email</h4>
+                <a href="mailto:hello@homelyb.com">hello@homelyb.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="order" class="order-info">
+          <h3>How to Order</h3>
+          <div class="order-steps">
+            <div class="order-step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Choose Your Meal</h4>
+                <p>Browse our menu and pick what sounds good to you today</p>
+              </div>
+            </div>
+            <div class="order-step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Contact Us</h4>
+                <p>Reach out via phone, email, or WhatsApp with your order</p>
+              </div>
+            </div>
+            <div class="order-step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Enjoy Your Meal</h4>
+                <p>We'll prepare it fresh and deliver it with care</p>
+              </div>
+            </div>
+          </div>
+          <a href="mailto:hello@homelyb.com?subject=Food Order" class="btn-primary btn-large">Place Your Order</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number" data-target="500">0</div>
+          <div class="stat-label">Happy Customers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="50">0</div>
+          <div class="stat-label">Menu Items</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="1000">0</div>
+          <div class="stat-label">Meals Delivered</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="100">0</div>
+          <div class="stat-label">5-Star Reviews</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+    <span class="whatsapp-icon">💬</span>
+  </a>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" id="scrollToTop" title="Back to top">
+    ↑
+  </button>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <img id="footer-logo" src="https://yfopfurpjlejhpqoygfu.supabase.co/storage/v1/object/public/kitchen_profile/HomelyB_Logo.jpeg" alt="HomelyB Logo" class="footer-logo">
+          <p class="footer-tagline">A bite from home, made with love</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Connect With Us</h4>
+          <div class="social-links">
+            <a href="#" class="social-link">Facebook</a>
+            <a href="#" class="social-link">Instagram</a>
+            <a href="#" class="social-link">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 HomelyB. Made with ❤️ for everyone missing home.</p>
+        <p class="dev-notice">This is a preview version. Data shown is for demonstration purposes only. Full website coming soon.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
