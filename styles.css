@@ -511,27 +511,57 @@ section {
   gap: 20px;
 }
 
-.contact-icon {
-  font-size: 2rem;
-  flex-shrink: 0;
+/* Contact Card */
+.contact-card {
+  background: linear-gradient(135deg, var(--bg-light), var(--bg-cream));
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  margin-top: 30px;
+  border: 2px solid var(--border-color);
+  transition: var(--transition);
 }
 
-.contact-method h4 {
-  margin-bottom: 5px;
-  font-size: 1.1rem;
+.contact-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-5px);
 }
 
-.contact-method a {
-  color: var(--primary-color);
-  font-weight: 500;
+.email-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 20px 50px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.3rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
 }
 
-.contact-method a:hover {
-  text-decoration: underline;
+.email-link:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-lg);
 }
 
-.contact-method p {
-  margin: 0;
+.email-icon {
+  font-size: 1.8rem;
+  animation: pulse 2s infinite;
+}
+
+.email-text {
+  letter-spacing: 1px;
+}
+
+.contact-hint {
+  margin-top: 20px !important;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  font-style: italic;
 }
 
 /* Order Section */
@@ -1012,6 +1042,16 @@ section {
 
   .benefits-grid {
     grid-template-columns: 1fr;
+  }
+
+  .contact-card {
+    padding: 30px 20px;
+  }
+
+  .email-link {
+    padding: 18px 35px;
+    font-size: 1.1rem;
+    gap: 12px;
   }
 
   .offer-content h2 {
