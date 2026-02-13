@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HomelyB - A Bite From Home</title>
+  <title>HomelyB - Every Bite Feels Like Home</title>
   <meta name="description" content="Fresh, homestyle food that feels warm and familiar. HomelyB brings the comfort of home-cooked meals to students and workers living away from home.">
   <link rel="icon" type="image/jpeg" href="https://yfopfurpjlejhpqoygfu.supabase.co/storage/v1/object/public/kitchen_profile/HomelyB_Logo.jpeg">
   <link rel="apple-touch-icon" href="https://yfopfurpjlejhpqoygfu.supabase.co/storage/v1/object/public/kitchen_profile/HomelyB_Logo.jpeg">
@@ -35,7 +35,7 @@
       <div class="hero-logo-container">
         <img src="https://yfopfurpjlejhpqoygfu.supabase.co/storage/v1/object/public/kitchen_profile/HomelyB_Logo.jpeg" alt="HomelyB Logo" class="hero-logo">
       </div>
-      <h1 class="hero-title">A Bite From Home</h1>
+      <h1 class="hero-title">Every Bite Feels Like Home</h1>
       <p class="hero-subtitle">Fresh, homestyle food that feels warm and familiar</p>
       <p class="hero-description">Missing home-cooked meals? We bring the comfort of home to your plate, made with love and care, just like mom used to make.</p>
       <div class="hero-buttons">
@@ -235,7 +235,7 @@
           <h3>Reach Out to Us</h3>
           <p>Have questions about our menu? Want to place an order? Or just want to say hello? We're here for you.</p>
           <div class="contact-card">
-            <a href="kitcheninfo100@gmail.com" class="email-link">
+            <a href="mailto:homelybinfo@gmail.com" class="email-link">
               <span class="email-icon">📧</span>
               <span class="email-text">Email</span>
             </a>
@@ -267,7 +267,7 @@
               </div>
             </div>
           </div>
-          <a href="mailto:kitcheninfo100@gmail.com?subject=Food Order" class="btn-primary btn-large">Place Your Order</a>
+          <a href="mailto:homelybinfo@gmail.com?subject=Food Order" class="btn-primary btn-large">Place Your Order</a>
         </div>
       </div>
     </div>
@@ -307,13 +307,40 @@
     ↑
   </button>
 
+  <!-- Google Form Modal Overlay -->
+  <div id="formModal" class="form-modal">
+    <div class="form-modal-content">
+      <button class="form-modal-close" id="closeFormModal" aria-label="Close form">&times;</button>
+      <div class="form-modal-header">
+        <h2>Register Yourself as Kitchen</h2>
+        <p>Fill out the form below to register your kitchen with HomelyB</p>
+      </div>
+      <div class="form-modal-body">
+        <iframe 
+          src="https://forms.gle/jW85Hbx1kJjNHwuD6" 
+          width="100%" 
+          height="600" 
+          frameborder="0" 
+          marginheight="0" 
+          marginwidth="0"
+          id="googleFormIframe"
+          allow="fullscreen">
+          Loading…
+        </iframe>
+        <div class="form-modal-fallback">
+          <p>If the form doesn't load, please <a href="https://forms.gle/jW85Hbx1kJjNHwuD6" target="_blank">click here to open it in a new tab</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
         <div class="footer-section">
           <img id="footer-logo" src="https://yfopfurpjlejhpqoygfu.supabase.co/storage/v1/object/public/kitchen_profile/HomelyB_Logo.jpeg" alt="HomelyB Logo" class="footer-logo">
-          <p class="footer-tagline">A bite from home, made with love</p>
+          <p class="footer-tagline">Every Bite Feels Like Home, made with love</p>
         </div>
         <div class="footer-section">
           <h4>Quick Links</h4>
@@ -322,6 +349,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#menu">Menu</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="https://forms.gle/jW85Hbx1kJjNHwuD6" target="_blank">Register Yourself as kitchen</a></li>
           </ul>
         </div>
         <div class="footer-section">
