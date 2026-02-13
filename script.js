@@ -285,6 +285,63 @@ function initParallaxEffect() {
   });
 }
 
+// Form Modal Functions
+function initFormModal() {
+  const formModal = document.getElementById('formModal');
+  const closeFormModal = document.getElementById('closeFormModal');
+  
+  if (!formModal || !closeFormModal) return;
+
+  // Check URL parameter to show modal automatically
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('register') === 'kitchen' || urlParams.get('form') === 'register') {
+    showFormModal();
+  }
+
+  // Close modal when close button is clicked
+  closeFormModal.addEventListener('click', () => {
+    hideFormModal();
+  });
+
+  // Close modal when clicking outside the modal content
+  formModal.addEventListener('click', (e) => {
+    if (e.target === formModal) {
+      hideFormModal();
+    }
+  });
+
+  // Close modal with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && formModal.classList.contains('active')) {
+      hideFormModal();
+    }
+  });
+}
+
+function showFormModal() {
+  const formModal = document.getElementById('formModal');
+  if (formModal) {
+    formModal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  }
+}
+
+function hideFormModal() {
+  const formModal = document.getElementById('formModal');
+  if (formModal) {
+    formModal.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
+    
+    // Remove URL parameter without page reload
+    if (window.history.replaceState) {
+      const url = new URL(window.location);
+      url.searchParams.delete('register');
+      url.searchParams.delete('form');
+      window.history.replaceState({}, '', url);
+    }
+  }
+}
+
 // Initialize all features when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   loadLogo();
@@ -299,6 +356,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initStatsCounter();
   initScrollToTop();
   initParallaxEffect();
+  initFormModal();
 });
 
 // Handle window resize
