@@ -8,7 +8,7 @@
   <link rel="icon" type="image/jpeg" href="https://yfopfurpjlejhpqoygfu.supabase.co/storage/v1/object/public/kitchen_profile/HomelyB_Logo.jpeg">
   <link rel="stylesheet" href="../styles.css">
 </head>
-<body class="availability-page">
+<body class="availability-page availability-pending">
   <!-- Navigation -->
   <nav class="navbar">
     <div class="container">
@@ -36,18 +36,18 @@
       </div>
 
       <h1 class="hero-title">Checking availability…</h1>
-      <p class="hero-subtitle">Just a moment while we verify service in your area</p>
+      <p class="hero-subtitle">Please allow location access to check availability</p>
 
       <div class="availability-card" aria-live="polite">
         <div class="availability-loading" id="availabilityLoading">
           <span class="availability-spinner" aria-hidden="true"></span>
           <div class="availability-loading-text">
-            <p class="availability-status-title">Checking availability in the background</p>
-            <p class="availability-status-subtitle">This helps us confirm when HomelyB will be live in your city.</p>
+            <p class="availability-status-title">Checking availability near you</p>
+            <p class="availability-status-subtitle">We’ll check location in the background for a better experience.</p>
           </div>
         </div>
 
-        <div class="availability-result" id="availabilityResult" hidden>
+        <div class="availability-result" id="availabilityResult">
           <div class="availability-result-badge">🚀 Coming Soon</div>
           <p class="availability-result-message">Exciting news! We’re growing and will be in your city in just a few days.</p>
           <div class="availability-actions">
@@ -96,7 +96,6 @@
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 HomelyB. Made with ❤️ for everyone missing home.</p>
-        <p class="dev-notice">This is a preview version. Data shown is for demonstration purposes only. Full website coming soon.</p>
       </div>
     </div>
   </footer>
