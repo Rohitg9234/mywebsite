@@ -300,6 +300,49 @@ a {
   align-items: flex-start;
 }
 
+.availability-result {
+  display: none;
+}
+
+.availability-page.availability-ready #availabilityLoading {
+  display: none;
+}
+
+.availability-page.availability-ready #availabilityResult {
+  display: block;
+}
+
+.availability-page.availability-pending #availabilityLoading {
+  display: flex;
+}
+
+.availability-page.availability-pending #availabilityResult {
+  display: none;
+}
+
+/* CSS fallback: always reveal result after 3.5s */
+.availability-page.availability-pending #availabilityLoading {
+  animation: availabilityHideLoading 0.2s ease forwards;
+  animation-delay: 3.5s;
+}
+
+.availability-page.availability-pending #availabilityResult {
+  display: block;
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+  animation: availabilityShowResult 0.35s ease forwards;
+  animation-delay: 3.5s;
+}
+
+@keyframes availabilityHideLoading {
+  to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes availabilityShowResult {
+  to { opacity: 1; transform: translateY(0); pointer-events: auto; }
+}
+
 .availability-spinner {
   width: 34px;
   height: 34px;

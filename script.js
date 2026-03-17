@@ -5,20 +5,24 @@
 // Load logo from information.txt file (optional - logo is already set in HTML)
 async function loadLogo() {
   try {
-    const response = await fetch('information.txt');
+    const response = await fetch('/information.txt', { cache: 'no-cache' });
     const logoUrl = await response.text();
+    const trimmed = (logoUrl || '').trim();
+
+    // Only accept valid URL-like values to avoid 404 HTML being used as a src
+    const looksLikeUrl = /^https?:\/\//i.test(trimmed);
     
     // Only update if information.txt has a different URL
-    if (logoUrl && logoUrl.trim()) {
+    if (looksLikeUrl) {
       const footerLogo = document.getElementById('footer-logo');
       const heroLogo = document.querySelector('.hero-logo');
       
-      if (footerLogo && logoUrl.trim() !== footerLogo.src) {
-        footerLogo.src = logoUrl.trim();
+      if (footerLogo && trimmed !== footerLogo.src) {
+        footerLogo.src = trimmed;
       }
       
-      if (heroLogo && logoUrl.trim() !== heroLogo.src) {
-        heroLogo.src = logoUrl.trim();
+      if (heroLogo && trimmed !== heroLogo.src) {
+        heroLogo.src = trimmed;
       }
     }
   } catch (error) {
@@ -349,35 +353,75 @@ async function initAvailabilityExperience() {
   const titleEl = document.querySelector('.availability-hero .hero-title');
   if (!loadingEl || !resultEl) return;
 
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 2500);
+  // Always resolve to a result quickly (avoid users waiting)
+  const SHOW_RESULT_AFTER_MS = 3500;
+  const startedAt = Date.now();
+  let hasShownResult = false;
 
-  let locationPayload = null;
+  const showResult = () => {
+    if (hasShownResult) return;
+    hasShownResult = true;
+    if (titleEl) titleEl.textContent = 'Availability checked';
+    document.body.classList.remove('availability-pending');
+    document.body.classList.add('availability-ready');
+  };
+
+  // Ensure the loader is visible for at least SHOW_RESULT_AFTER_MS
+  const scheduleShowResult = () => {
+    const elapsed = Date.now() - startedAt;
+    const remaining = Math.max(0, SHOW_RESULT_AFTER_MS - elapsed);
+    setTimeout(showResult, remaining);
+  };
+
+  scheduleShowResult();
+
+  // 1) Prompted location (shows browser permission dialog)
   try {
-    // Silent IP-based location lookup (no permission prompt)
+    if (navigator.geolocation && navigator.geolocation.getCurrentPosition) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          try {
+            document.documentElement.dataset.userLat = String(pos.coords.latitude);
+            document.documentElement.dataset.userLng = String(pos.coords.longitude);
+            document.documentElement.dataset.userAccuracyM = String(pos.coords.accuracy);
+          } catch (_) {}
+          scheduleShowResult();
+        },
+        () => {
+          // Ignore; fallback below may still run
+        },
+        { enableHighAccuracy: false, timeout: 1500, maximumAge: 300000 }
+      );
+    }
+  } catch (e) {
+    // Intentionally ignore; this runs in the background
+  } finally {
+    // no-op
+  }
+
+  // 2) Silent IP-based fallback (no prompt) — used only if available
+  try {
+    const controller = new AbortController();
+    const t = setTimeout(() => controller.abort(), 1500);
     const res = await fetch('https://ipapi.co/json/', {
       signal: controller.signal,
       headers: { 'Accept': 'application/json' }
     });
-    if (res.ok) locationPayload = await res.json();
-  } catch (e) {
-    // Intentionally ignore; this runs in the background
-  } finally {
-    clearTimeout(timeout);
+    clearTimeout(t);
+    if (res.ok) {
+      const payload = await res.json();
+      if (payload && typeof payload === 'object') {
+        try {
+          document.documentElement.dataset.userCity = payload.city || '';
+          document.documentElement.dataset.userRegion = payload.region || '';
+          document.documentElement.dataset.userCountry = payload.country_name || '';
+        } catch (_) {}
+      }
+    }
+  } catch (_) {
+    // ignore
   }
-
-  // Store for future use (not displayed)
-  if (locationPayload && typeof locationPayload === 'object') {
-    try {
-      document.documentElement.dataset.userCity = locationPayload.city || '';
-      document.documentElement.dataset.userRegion = locationPayload.region || '';
-      document.documentElement.dataset.userCountry = locationPayload.country_name || '';
-    } catch (_) {}
-  }
-
-  if (titleEl) titleEl.textContent = 'Availability checked';
-  loadingEl.hidden = true;
-  resultEl.hidden = false;
+  scheduleShowResult();
 }
 
 // Initialize all features when DOM is ready
