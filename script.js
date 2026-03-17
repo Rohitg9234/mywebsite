@@ -342,6 +342,44 @@ function hideFormModal() {
   }
 }
 
+// Availability (silent location check)
+async function initAvailabilityExperience() {
+  const loadingEl = document.getElementById('availabilityLoading');
+  const resultEl = document.getElementById('availabilityResult');
+  const titleEl = document.querySelector('.availability-hero .hero-title');
+  if (!loadingEl || !resultEl) return;
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 2500);
+
+  let locationPayload = null;
+  try {
+    // Silent IP-based location lookup (no permission prompt)
+    const res = await fetch('https://ipapi.co/json/', {
+      signal: controller.signal,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) locationPayload = await res.json();
+  } catch (e) {
+    // Intentionally ignore; this runs in the background
+  } finally {
+    clearTimeout(timeout);
+  }
+
+  // Store for future use (not displayed)
+  if (locationPayload && typeof locationPayload === 'object') {
+    try {
+      document.documentElement.dataset.userCity = locationPayload.city || '';
+      document.documentElement.dataset.userRegion = locationPayload.region || '';
+      document.documentElement.dataset.userCountry = locationPayload.country_name || '';
+    } catch (_) {}
+  }
+
+  if (titleEl) titleEl.textContent = 'Availability checked';
+  loadingEl.hidden = true;
+  resultEl.hidden = false;
+}
+
 // Initialize all features when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   loadLogo();
@@ -357,6 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollToTop();
   initParallaxEffect();
   initFormModal();
+  initAvailabilityExperience();
 });
 
 // Handle window resize

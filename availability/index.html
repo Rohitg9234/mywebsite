@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Availability - HomelyB</title>
+  <meta name="description" content="HomelyB availability check. We're growing and coming to your city soon.">
+  <link rel="icon" type="image/jpeg" href="https://yfopfurpjlejhpqoygfu.supabase.co/storage/v1/object/public/kitchen_profile/HomelyB_Logo.jpeg">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="availability-page">
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <ul class="nav-links">
+        <li><a href="../index.html#home">Home</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#menu">Menu</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a href="../index.html#order" class="btn-primary">Order Now</a></li>
+      </ul>
+      <div class="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero (same look & feel as homepage) -->
+  <section class="hero availability-hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-logo-container">
+        <img src="https://yfopfurpjlejhpqoygfu.supabase.co/storage/v1/object/public/kitchen_profile/HomelyB_Logo.jpeg" alt="HomelyB Logo" class="hero-logo">
+      </div>
+
+      <h1 class="hero-title">Checking availability…</h1>
+      <p class="hero-subtitle">Just a moment while we verify service in your area</p>
+
+      <div class="availability-card" aria-live="polite">
+        <div class="availability-loading" id="availabilityLoading">
+          <span class="availability-spinner" aria-hidden="true"></span>
+          <div class="availability-loading-text">
+            <p class="availability-status-title">Checking availability in the background</p>
+            <p class="availability-status-subtitle">This helps us confirm when HomelyB will be live in your city.</p>
+          </div>
+        </div>
+
+        <div class="availability-result" id="availabilityResult" hidden>
+          <div class="availability-result-badge">🚀 Coming Soon</div>
+          <p class="availability-result-message">Exciting news! We’re growing and will be in your city in just a few days.</p>
+          <div class="availability-actions">
+            <a href="../index.html" class="btn-primary">Back to Home</a>
+            <a href="../index.html#contact" class="btn-secondary">Get Updates</a>
+          </div>
+          <p class="availability-fineprint">Availability was checked automatically to enhance your experience. Your location is not shown publicly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <img id="footer-logo" src="https://yfopfurpjlejhpqoygfu.supabase.co/storage/v1/object/public/kitchen_profile/HomelyB_Logo.jpeg" alt="HomelyB Logo" class="footer-logo">
+          <p class="footer-tagline">Every Bite Feels Like Home, made with love</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html#home">Home</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#menu">Menu</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Learn More</h4>
+          <ul class="footer-links">
+            <li><a href="../policies/privacy/">Privacy Policy</a></li>
+            <li><a href="../policies/terms-of-service/">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Connect With Us</h4>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/company/homelyb/" class="social-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://www.facebook.com/share/1Bb66xbS6d/" class="social-link" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.instagram.com/home.lyb?igsh=MXJkcGNiaDJhZ2F6eA%3D%3D" class="social-link" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://wa.me/9850307048" class="social-link" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 HomelyB. Made with ❤️ for everyone missing home.</p>
+        <p class="dev-notice">This is a preview version. Data shown is for demonstration purposes only. Full website coming soon.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
